@@ -37,6 +37,34 @@ public class BigSorting {
         return f;
     }
 
+    static int partition(String[] a, int low, int high) {
+        int q = low;
+        String x = a[high];
+        int i = low - 1;
+        String str;
+        for (int j = low; j < high; j++) {
+            int t = compare(a[j], x);
+            if (t == -1) {
+                i++;
+                str = a[i];
+                a[i] = a[j];
+                a[j] = str;
+            }
+        }
+        str = a[i + 1];
+        a[i + 1] = a[high];
+        a[high] = str;
+        return i + 1;
+    }
+
+    static void quicksort(String[] a, int low, int high) {
+        if (low < high) {
+            int q = partition(a, low, high);
+            quicksort(a, low, q - 1);
+            quicksort(a, q + 1, high);
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -44,18 +72,9 @@ public class BigSorting {
         for (int i = 0; i < n; i++) {
             unsorted[i] = sc.next();
         }
-        for (int i = 0; i < n-1; i++) {
-            for (int j=i+1;j<n;j++){
-                int t=compare(unsorted[i],unsorted[j]);
-                if (t==1){
-                    String str=unsorted[i];
-                    unsorted[i]=unsorted[j];
-                    unsorted[j]=str;
-                }
-            }
 
-        }
-        for (int i=0;i<n;i++)
+        quicksort(unsorted,0,n-1);
+        for (int i = 0; i < n; i++)
             System.out.println(unsorted[i]);
     }
 
