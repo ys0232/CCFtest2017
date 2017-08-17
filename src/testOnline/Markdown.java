@@ -13,6 +13,12 @@ public class Markdown {
         String line = null;
         String string = "";
         String[] strs={""};
+        String s="";
+        while (sc.hasNext()) {
+            s+=sc.nextLine();
+        }
+
+
         while (sc.hasNext()) {
             line = sc.nextLine();
             String[] str = line.trim().split(" ");
