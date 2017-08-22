@@ -1,0 +1,18 @@
+# Heading
+
+## sub-Heading
+
+Paragraphs are aeparated
+by a blank line
+
+Text attributes _italic_.
+
+Bullet list:
+
+* apples
+* oranges
+* pears
+
+A [link](http://example.com).
+
+EOF
